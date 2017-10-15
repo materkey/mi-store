@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <h1>Все товары</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="get">
+        {% csrf_token %}
+        {{ searchform }}
+        <button type="submit">Отфильтровать</button>
+    </form>
+
+    {% if user.is_superuser %}
+        <a href="{% url 'products:new' %}">Добавить новый товар</a>
+        <br>
+        <br>
+        {% endif %}
+    {% include 'products/products.html' %}
+
+    {% if is_paginated %}
+
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">Назад</a>
+                {% endif %}
+
+                <span class="current">
+                    Страница {{ page_obj.number }} из {{ paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Далее</a>
+                {% endif %}
+            </span>
+
+    {% endif %}
+
+
+{% endblock %}

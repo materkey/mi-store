@@ -1,0 +1,11 @@
+{% for product in products %}
+        <div>
+            <em><a href="{% url 'products:details' product.id %}">{{ product.product_name }}</a></em>
+        </div>
+        </p>
+
+        <p>
+            {% include 'products/product_photos.html' %}
+        </p>
+        <br>
+{% endfor %}

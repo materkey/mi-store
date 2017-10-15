@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Товары в категории {{category.title}}:</h1>
+
+{% for product in category.products.all %}
+<div>
+    <a href="/product/{{product.id}}">{{product.product_name}}</a>
+    <br>
+    <img src="{{ product.photo.url }}", width="100">
+</div>
+{% endfor %}
+
+{% endblock %}
+
+{% block menu %}
+{% endblock %}

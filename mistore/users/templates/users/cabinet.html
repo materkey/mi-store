@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Страница покупателя {{user.id}}<h1>
+    <p>
+        <div>
+            <img src="{{user.avatar.url }}" alt={{user.name }} height="100" width="100">
+        </div>
+        <div>
+            Идентификатор - {{user.id}}
+        </div>
+    </p>
+
+        <p>
+            Корзина:
+            {% for order in user.user_cart.customer_orders %}
+                <div>
+                    <em>{{ forloop.counter }}.</em>
+                    <em><a href="/product/{{ order.product.id }}">{{ order.product.product_name }} Количество: {{ order.quantity}}</a></em>
+                </div>
+            {% endfor %}
+    </p>
+
+
+    <p>
+            Покупки:
+            {% for product in user.buy_hystory %}
+                <div>
+                <em>{{ forloop.counter }}.</em>
+                <em><a href="/product/{{ product.id }}">{{ product.product_name }}</a></em>
+                </div>
+            {% endfor %}
+
+    </p>
+
+    <p>
+            Отзывы:
+            {% for review in user.reviews %}
+        <div>
+                <em>{{ forloop.counter }}.</em>
+                <em><a href="/product/{{ review.reviewed_product.id }}">{{ review.text }}</a></em>
+        </div>
+            {% endfor %}
+    </p>
+
+{% endblock %}

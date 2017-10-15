@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Страница продукта</h1>
+{{product.product_name}}
+<p>
+    <img src="{{ product.photo.url }}">
+    <h2>{{ product.description }}</h2>
+</p>
+<p>
+    <b>Отзывы:</b>
+    {% for review in product.reviews.all %}
+<div>
+    <em>{{ forloop.counter }}.</em>
+    <em>{{ review.text }}</em><br>
+    <small> Автор отзыва: {{ review.author }} </small>
+</div>
+    {% endfor %}
+</p>
+<p>
+    <b>Категории:</b>
+    {% for category in product.categories.all %}
+<div>
+    <em><a href="/category/{{category.id}}">{{ category.title}}</a></em>
+</div>
+    {% endfor %}
+</p>
+{% endblock %}
+
+{% block menu %}
+{% endblock %}

@@ -1,0 +1,6 @@
+{% for product in user.buy_hystory.all %}
+    <div>
+        <em>{{ forloop.counter }}.</em>
+        <em><a href="{% url 'products:details' product.id %}">{{ product.product_name }}</a></em>
+    </div>
+{% endfor %}

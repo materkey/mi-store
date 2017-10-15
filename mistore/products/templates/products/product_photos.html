@@ -1,0 +1,3 @@
+{% load static %}
+<img src="{% if product.photo %}{{ product.photo.url }}{% else %}{% static "/default/product.jpg" %}{% endif %}"
+     height="100" width="100">

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Товары в категории {{category.title}}:</h1>
+
+{% for product in category.products.all %}
+<div>
+    <a href="{% url 'products:details' product.id %}">{{product.product_name}}</a>
+    <br>
+    {% include 'products/product_photos.html' %}
+</div>
+{% endfor %}
+
+{% endblock %}
+

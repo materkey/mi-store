@@ -1,0 +1,16 @@
+<section>
+    {% for product in products %}
+        <article>
+            <div>
+                <em><a href="{% url 'products:details' product.id %}">{{ product.product_name }}</a></em>
+                {% include 'likes/like_button.html' %}
+            </div>
+            </p>
+
+            <p>
+                {% include 'products/product_photos.html' %}
+            </p>
+            <br>
+        </article>
+    {% endfor %}
+</section>

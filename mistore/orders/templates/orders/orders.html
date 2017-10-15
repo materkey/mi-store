@@ -1,0 +1,27 @@
+<section>
+    {% for order in orders %}
+        {% if order.active %}
+            <article>
+                <div>
+                    <em><a href="{% url 'products:details' order.product.id %}">{{ order.product.product_name }}</a></em>
+                    <button data-url="{% url 'orders:deactivate' order.id %}"
+                            class="btn btn-danger ajaxOrderDeactivate"><i class="fa fa-trash"></i></button>
+                    <br>
+                    <em>Количество: {{ order.quantity }}</em>
+                    {#                <em><span class="like" data-likes-url="{% url "likes:product_like" order.id %}" index="{{ order.id }}">Лайк({{ order.likes.count }})</span></em>#}
+                    {#                <span class="thumb"><em><a href="{% url 'likes:like' %}">Лайк({{ product.likes.count }})</a></em></span>#}
+                </div>
+                </p>
+
+                <p>
+                    {#            {% include 'products/product_photos.html' with product = order.product %} почему это не работает? #}
+                    {% load static %}
+                    <img src="
+                            {% if order.product.photo %}{{ order.product.photo.url }}{% else %}{% static "/default/product.jpg" %}{% endif %}"
+                         height="100" width="100">
+                </p>
+                <br>
+            </article>
+        {% endif %}
+    {% endfor %}
+</section>

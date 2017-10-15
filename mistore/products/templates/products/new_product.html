@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <h1>Страница добавления продукта</h1>
+    <form method="post" class="col-4 mx-auto">
+        {% csrf_token %}
+        {% for field in form %}
+            {% bootstrap_field field show_label=False %}
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+{% endblock %}

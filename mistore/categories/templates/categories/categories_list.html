@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}
+    <h2>Категории</h2>
+{% endblock %}
+
+{% block content %}
+    <section>
+        {% for category in categories %}
+            <article>
+                <div>
+                    <em><a href="{% url 'categories:view' category.id %}" class='btn btn-secondary'>{{ category.title }}</a></em>
+                </div>
+                <br>
+            </article>
+        {% endfor %}
+    </section>
+
+{#    {% include 'main/pagination.html' %}#}
+
+
+{% endblock %}

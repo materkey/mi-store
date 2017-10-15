@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block head-title %}
+    Корзина
+{% endblock %}
+
+{% block title %}
+    <h1>Корзина</h1>
+{% endblock %}
+
+{% block content %}
+
+    {% include 'orders/orders.html' %}
+    <a href="{% url 'carts:checkout' %}" class="btn btn-success" role="button">Оформить заказ</a>
+
+
+{% endblock %}

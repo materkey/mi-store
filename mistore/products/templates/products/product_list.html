@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block title %}
+    <h2>Все товары</h2>
+{% endblock %}
+
+{% block content %}
+    <form method="get" class="container col-6" data-product-names="{% url 'products:product_names' %}">
+        {% csrf_token %}
+        <div class="form-row mx-auto">
+                {% bootstrap_field searchform.order_by field_class="" form_group_class="col" show_label=True %}
+                {% bootstrap_field searchform.price_gt field_class=""  form_group_class="col" show_label=True %}
+                {% bootstrap_field searchform.price_lt field_class=""  form_group_class="col" show_label=True %}
+                {% bootstrap_field searchform.search field_class=""  form_group_class="col" show_label=True %}
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Отфильтровать</button>
+    </form>
+        <br>
+
+    {% if user.is_superuser %}
+        <br>
+    {% endif %}
+    {% include 'products/products.html' %}
+    <a href="{% url 'products:new' %}" class="btn btn-primary">Добавить новый товар</a>
+    <br>
+    {% include 'main/pagination.html' %}
+
+{% endblock %}

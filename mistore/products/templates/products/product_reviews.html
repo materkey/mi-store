@@ -1,0 +1,6 @@
+<div id="pReviews" data-url-reviews="{% url 'products:reviews' pk=product.pk %}">
+    <b>Отзывы:</b>
+    {% for review in reviews %}
+        {% include 'reviews/review.html' %}
+    {% endfor %}
+</div>

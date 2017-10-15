@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1> Личный кабинет</h1>
+    <p>
+    <div>
+        {% include 'users/user_avatar.html' with user=user %}
+    </div>
+    <div>
+        Идентификатор - {{ user.id }}
+    </div>
+    </p>
+
+    <p>
+        Корзина:
+        {% for order in user.user_cart.customer_orders %}
+            <div>
+                <em>{{ forloop.counter }}.</em>
+                <em><a href="{% url 'products:details' order.product.id %}">{{ order.product.product_name }}
+                    Количество: {{ order.quantity }}</a></em>
+            </div>
+        {% endfor %}
+    </p>
+
+    <p>
+        История покупок:
+        {% include 'products/purchase_history.html' %}
+
+    </p>
+
+    <p>
+        Отзывы:
+        {% include 'reviews/user_reviews.html' %}
+    </p>
+
+{% endblock %}

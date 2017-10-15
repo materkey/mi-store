@@ -1,0 +1,26 @@
+{% load bootstrap4 %}
+
+<article class="mx-auto col-3">
+            <span class="form-control ">
+            <div>
+        {% if review.deleted == True %}
+            Архивный отзыв<br>
+        {% endif %}
+
+                <em><a href="{% url 'products:details' review.reviewed_product.id %}">{{ review.text }}</a></em>
+                {% if user.is_authenticated and review.author == user or user.is_superuser %}
+                    <button type="button" data-href="{% url 'reviews:edit' review.id %}"
+                            data-modal-title="Редактирование отзыва"
+                            class="btn btn-sm editReview"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                {% endif %}
+            </div>
+
+            <span class="text-right">
+                <small>
+                Автор отзыва: <a
+                        href="{% url 'users:details' review.author.id %}">{{ review.author }}</a>
+                </small>
+            </span>
+        </span>
+    <br>
+</article>

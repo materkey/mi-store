@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <form action="" method="post" class="col-4 mx-auto">
+        {% for field in form %}
+            {% bootstrap_field field %}
+        {% endfor %}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Сохранить изменения">
+    </form>
+{% endblock %}

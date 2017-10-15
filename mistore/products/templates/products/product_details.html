@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block content %}
+    <script src="{% static 'js/reviews.js' %}"></script>
+    <h1>Страница продукта</h1>
+    {{ product.product_name }}
+
+    <p>
+        {% include 'products/product_photos.html' %}
+    <h2 class="col-4 mx-auto">{{ product.description }}</h2>
+    Цена - {{ product.price }} руб. <br>
+    {% if user.is_superuser %}
+        <br>
+        <a href="{% url 'products:edit' product.id %}" class="btn btn-success" role="button">Редактировать товар</a>
+    {% endif %}
+    <a href="{% url 'orders:new' product.id %}" class="btn btn-success" role="button">Добавить в корзину</a>
+        {% include 'likes/like_button.html' %}
+
+    </p>
+    <div class="container">
+        <button class="btn btn-lg updateReviews">Обновить отзывы
+        </button>
+    </div><br>
+    <div id="pReviews" data-url-reviews="{% url 'products:reviews' pk=product.pk %}">
+    </div>
+    <div class="container">
+        <button class="btn btn-lg btn-warning updatingReviews"><span
+                class="fa fa-spinner icon-refresh-animate"></span> Загрузка отзывов...
+        </button>
+    </div>
+    {% if user.is_authenticated %}
+    <p>
+    <div class="form-control col-md-3 mx-auto">
+        <h5>Новый отзыв</h5>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                {% bootstrap_field field field_class="col-md-12" show_label=False %}
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Добавить отзыв</button>
+        </form>
+    </div>
+    </p>
+    {% endif %}
+    <p>
+        <b>Категории:</b>
+    <div class="btn-group btn-group-sm" role="group" aria-label="...">
+        {% for category in product.categories.all %}
+            <div>
+                {#                    <a href="{% url 'categories:view' category.id %}" type="button" class="btn btn-secondary">{{ category.title }}</a>#}
+                <em><a href="{% url 'categories:view' category.id %}" class="btn btn-secondary">{{ category.title }}</a></em>
+            </div>
+        {% endfor %}
+    </div>
+    </p>
+{% endblock %}

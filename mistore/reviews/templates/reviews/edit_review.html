@@ -1,0 +1,12 @@
+{% load static %}
+{% load bootstrap4 %}
+
+<form action="{% url "reviews:edit" pk=review.pk %}" method="post" data-formtype="ajaxForm">
+    {% csrf_token %}
+        {% bootstrap_field form.text show_label=False %}
+        {% bootstrap_field form.deleted show_label=False set_disabled=True field_class=" deleteCheckbox" %}
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-primary" value="Сохранить изменения">
+{#        <button type="submit" class="btn btn-danger deleteButton"><i class="fa fa-trash"></i></button>#}
+    </div>
+</form>

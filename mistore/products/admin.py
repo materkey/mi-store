@@ -9,3 +9,4 @@ from .models import Product
 class ProductAdmin(admin.ModelAdmin):
     pass
 
+

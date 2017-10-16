@@ -24,7 +24,7 @@
 <div>
     <em>{{ forloop.counter }}.</em>
     <em>{{ review.text }}</em><br>
-    <small> Автор отзыва: {{ review.author }} </small>
+    <small> Автор отзыва: <a href="/users/detail/{{review.author.id}}">{{ review.author }}</a> </small>
 </div>
 {% endfor %}
 </p>

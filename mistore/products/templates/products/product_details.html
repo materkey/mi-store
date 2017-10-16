@@ -21,7 +21,7 @@
     <b>Категории:</b>
     {% for category in product.categories.all %}
 <div>
-    <em>{{ category.title}}</em>
+    <em><a href="/category/{{category.id}}">{{ category.title}}</a></em>
 </div>
     {% endfor %}
 </p>

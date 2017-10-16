@@ -38,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'carts.apps.CartsConfig',
+    'categories.apps.CategoriesConfig',
+    'products.apps.ProductsConfig',
+    'reviews.apps.ReviewsConfig',
+    'orders.apps.OrdersConfig',
+    'main.apps.MainConfig',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -124,3 +130,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

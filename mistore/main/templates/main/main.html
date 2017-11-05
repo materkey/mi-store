@@ -7,7 +7,7 @@
     {% for product in products %}
 <div>
     <em>{{ forloop.counter }}.</em>
-    <em><a href="{% url 'products:detail' product.id %}">{{ product.product_name }}</a></em>
+    <em><a href="/product/{{ product.id }}">{{ product.product_name }}</a></em>
 </div>
 </p>
 
@@ -24,7 +24,7 @@
 <div>
     <em>{{ forloop.counter }}.</em>
     <em>{{ review.text }}</em><br>
-    <small> Автор отзыва: <a href="{% url 'users:detail' review.author.id %}">{{ review.author }}</a> </small>
+    <small> Автор отзыва: <a href="/users/detail/{{review.author.id}}">{{ review.author }}</a> </small>
 </div>
 {% endfor %}
 </p>

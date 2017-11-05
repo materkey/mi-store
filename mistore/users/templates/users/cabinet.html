@@ -16,10 +16,10 @@
             {% for order in user.user_cart.customer_orders %}
                 <div>
                     <em>{{ forloop.counter }}.</em>
-                    <em><a href="{% url 'products:detail' order.product.id %}">{{ order.product.product_name }} Количество: {{ order.quantity}}</a></em>
+                    <em><a href="/product/{{ order.product.id }}">{{ order.product.product_name }} Количество: {{ order.quantity}}</a></em>
                 </div>
             {% endfor %}
-        </p>
+    </p>
 
 
     <p>
@@ -27,7 +27,7 @@
             {% for product in user.buy_hystory %}
                 <div>
                 <em>{{ forloop.counter }}.</em>
-                <em><a href="{% url 'products:detail' product.id %}">{{ product.product_name }}</a></em>
+                <em><a href="/product/{{ product.id }}">{{ product.product_name }}</a></em>
                 </div>
             {% endfor %}
 
@@ -38,7 +38,7 @@
             {% for review in user.reviews %}
         <div>
                 <em>{{ forloop.counter }}.</em>
-                <em><a href="{% url 'products:detail' review.reviewed_product.id %}">{{ review.text }}</a></em>
+                <em><a href="/product/{{ review.reviewed_product.id }}">{{ review.text }}</a></em>
         </div>
             {% endfor %}
     </p>

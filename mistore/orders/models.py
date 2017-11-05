@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from carts.models import Cart
 from django.db import models
 from products.models import Product
+from carts.models import Cart
 
 
 class Order(models.Model):

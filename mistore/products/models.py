@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from categories.models import Category
-from django.conf import settings
 from django.db import models
+from django.conf import settings
+from categories.models import Category
+#from carts.models import Cart
 
 class Product(models.Model):
     active = models.BooleanField(default=True)
@@ -15,10 +16,12 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField(Category, related_name='products')
+    #carts = models.ManyToManyField(Cart, related_name='products')
 
     def __unicode__(self):
         return self.product_name
 
     class Meta:
+        #ordering = '-id'
         verbose_name = u'Товар'
         verbose_name_plural = u'Товары'

@@ -13,7 +13,7 @@
             {% for product in user.buy_hystory.all %}
         <div>
                 <em>{{ forloop.counter }}.</em>
-                <em><a href="{% url 'products:detail' product.id %}">{{ product.product_name }}</a></em>
+                <em><a href="/product/{{ product.id }}">{{ product.product_name }}</a></em>
         </div>
             {% endfor %}
     </p>
@@ -23,7 +23,7 @@
             {% for review in user.reviews.all %}
         <div>
                 <em>{{ forloop.counter }}.</em>
-                <em><a href="{% url 'products:detail' review.reviewed_product.id %}">{{ review.text }}</a></em>
+                <em><a href="/product/{{ review.reviewed_product.id }}">{{ review.text }}</a></em>
         <div>
             {% endfor %}
     </p>

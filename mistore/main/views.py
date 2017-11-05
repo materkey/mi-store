@@ -5,7 +5,6 @@ from django.shortcuts import render
 from products.models import Product
 from reviews.models import Review
 
-
 def get_main(request):
 
     products = Product.objects.all()[:5]

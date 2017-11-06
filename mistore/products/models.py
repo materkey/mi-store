@@ -9,10 +9,10 @@ from users.models import User
 
 class Product(models.Model):
     active = models.BooleanField(default=True)
-    product_name = models.CharField(max_length=255, default=None)
+    product_name = models.CharField(max_length=255)
     description = models.CharField(max_length=255, default='No description provided')
     photo = models.ImageField(upload_to='photos', blank=True, null=True)
-    price = models.IntegerField(default=None)
+    price = models.IntegerField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

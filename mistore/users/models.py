@@ -6,6 +6,6 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     company_name = models.CharField(max_length=255)
-    avatar = models.ImageField(upload_to='avatars', blank=True, null=True, default='/media/default/avatar.jpg')
+    avatar = models.ImageField(upload_to='avatars', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

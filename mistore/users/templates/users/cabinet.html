@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Страница покупателя {{ user.id }}</h1>
+    <h1> Личный кабинет</h1>
     <p>
     <div>
-        <img src="{{ user.avatar.url }}" alt={{ user.name }} height="100" width="100">
+        {% include 'users/user_avatar.html' with user=user %}
     </div>
     <div>
         Идентификатор - {{ user.id }}
@@ -21,7 +21,6 @@
             </div>
         {% endfor %}
     </p>
-
 
     <p>
         История покупок:

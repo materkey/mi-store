@@ -4,19 +4,12 @@
     <h1>Страница продукта</h1>
     {{ product.product_name }}
     <p>
-        <img src="{{ product.photo.url }}">
+        {% include 'products/product_photo' %}
     <h2>{{ product.description }}</h2>
     </p>
     <p>
         <b>Отзывы:</b>
-        {% for review in product.reviews.all %}
-            <div>
-                <em>{{ forloop.counter }}.</em>
-                <em>{{ review.text }}</em><br>
-                <small> Автор отзыва: <a href="{% url 'users:details' review.author.id %}">{{ review.author }}</a>
-                </small>
-            </div>
-        {% endfor %}
+        {% include 'reviews/product_reviews' %}
     </p>
     <p>
         <b>Категории:</b>

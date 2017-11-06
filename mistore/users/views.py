@@ -5,14 +5,14 @@ from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from users.models import User
 
-def user_detail(request, pk=None):
+def user_details(request, pk=None):
     
     user = get_object_or_404(User.objects.all(), pk=pk )
 
-    return render(request, 'users/user_detail.html', {'user' : user})
+    return render(request, 'users/user_details.html', {'user' : user})
 
-def cabinet(request, pk=None):
+def cabinet(request):
     
-    user = get_object_or_404(User.objects.all(), pk=pk )
+    user = request.user
 
     return render(request, 'users/cabinet.html', {'user' : user})

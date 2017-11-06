@@ -18,12 +18,12 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
-from main.views import get_main
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', include('main.urls')),
-    url(r'^product', include('products.urls')),
-    url(r'^user', include('users.urls')),
-    url(r'^category', include('categories.urls')),
+    url(r'^products/', include('products.urls', namespace='products')),
+    url(r'^users/', include('users.urls', namespace='users')),
+    url(r'^categories/', include('categories.urls', namespace='categories')),
+    url(r'^', include('main.urls', namespace='main')),
+    #url(r'^carts', include('carts.urls', namespace="carts")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -6,7 +6,7 @@
 
 {% for product in category.products.all %}
 <div>
-    <a href="/product/{{product.id}}">{{product.product_name}}</a>
+    <a href="{% url 'products:details' product.id %}">{{product.product_name}}</a>
     <br>
     <img src="{{ product.photo.url }}", width="100">
 </div>
@@ -14,5 +14,3 @@
 
 {% endblock %}
 
-{% block menu %}
-{% endblock %}

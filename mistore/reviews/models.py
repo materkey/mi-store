@@ -12,7 +12,7 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted = models.BooleanField(default=False)
-    reviewed_product = models.ForeignKey(Product, related_name='reviews', default = 1)
+    reviewed_product = models.ForeignKey(Product, related_name='reviews', default=None)
 
     def __unicode__(self):
         return self.text

@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from views import product_detail
+from views import product_details
 
 urlpatterns = [
-    url(r'(?P<pk>\d+)/$', product_detail, name='product_detail'),
+    url(r'(?P<pk>\d+)/$', product_details, name='details'),
 ]

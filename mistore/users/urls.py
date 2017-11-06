@@ -1,7 +1,7 @@
 from django.conf.urls import url
-from views import user_detail, cabinet
+from views import user_details, cabinet
 
 urlpatterns = [
-    url(r'detail/(?P<pk>\d+)/$', user_detail),
-    url(r'cabinet/(?P<pk>\d+)/$', cabinet),
+    url(r'details/(?P<pk>\d+)/$', user_details, name='details'),
+    url(r'cabinet/$', cabinet, name='cabinet'),
 ]

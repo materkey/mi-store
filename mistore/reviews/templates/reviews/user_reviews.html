@@ -1,0 +1,6 @@
+{% for review in user.reviews.all %}
+    <div>
+        <em>{{ forloop.counter }}.</em>
+        <em><a href="{% url 'products:details' review.reviewed_product.id %}">{{ review.text }}</a></em>
+    </div>
+{% endfor %}

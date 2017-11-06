@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Страница покупателя <br> Идентификатор - {{ user.id }}</h1>
+    <p>
+    <div>
+        <img src="{{ user.avatar.url }}" alt={{ user.name }} height="100" width="100">
+    </div>
+    </p>
+
+    <p>
+        История покупок:
+        {% include 'products/purchase_history.html' %}
+    </p>
+
+    <p>
+        Отзывы:
+        {% include 'reviews/user_reviews.html' %}
+    </p>
+
+{% endblock %}

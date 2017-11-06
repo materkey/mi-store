@@ -1,36 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> Главная страница</h1>
-<p>
-    <b>Новые товары:</b>
-    {% for product in products %}
-<div>
-    <em>{{ forloop.counter }}.</em>
-    <em><a href="/product/{{ product.id }}">{{ product.product_name }}</a></em>
-</div>
-</p>
+    <h1> Главная страница</h1>
+    <p>
+        <b>Новые товары:</b>
+        {% for product in products %}
+            <div>
+                <em>{{ forloop.counter }}.</em>
+                <em><a href="{% url 'products:details' product.id %}">{{ product.product_name }}</a></em>
+            </div>
+            </p>
 
-<p>
-    <img src="{{product.photo.url }}" alt={{product.product_name }} height="100" width="100">
-</p>
-<br>
-{% endfor %}
-</p>
+            <p>
+                <img src="{{ product.photo.url }}" alt={{ product.product_name }} height="100" width="100">
+            </p>
+            <br>
+        {% endfor %}
+    </p>
 
-<p>
-    <b>Недавние отзывы:</b>
-    {% for review in reviews %}
-<div>
-    <em>{{ forloop.counter }}.</em>
-    <em>{{ review.text }}</em><br>
-    <small> Автор отзыва: <a href="/users/detail/{{review.author.id}}">{{ review.author }}</a> </small>
-</div>
-{% endfor %}
-</p>
+    <p>
+        <b>Недавние отзывы:</b>
+        {% for review in reviews %}
+            <div>
+                <em>{{ forloop.counter }}.</em>
+                <em>{{ review.text }}</em><br>
+                <small> Автор отзыва: <a href="{% url 'users:details' review.author.id %}">{{ review.author }}</a>
+                </small>
+            </div>
+        {% endfor %}
+    </p>
 
-{% endblock %}
-
-{% block menu %}
-<h2></h2>
 {% endblock %}

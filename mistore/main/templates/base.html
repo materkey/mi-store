@@ -1,8 +1,10 @@
+{% load static %}
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}">
 <div style="text-align: center;">
     <h1>Фирменный магазин Xiaomi</h1>
 
     {% block menu %}
-    <a href="{% url 'main:main' %}">Главная</a>
+        <a href="{% url 'main:main' %}">Главная</a>
     {% endblock %}
 
 

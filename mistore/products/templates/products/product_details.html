@@ -4,12 +4,12 @@
     <h1>Страница продукта</h1>
     {{ product.product_name }}
     <p>
-        {% include 'products/product_photo' %}
+        {% include 'products/product_photos.html' %}
     <h2>{{ product.description }}</h2>
     </p>
     <p>
         <b>Отзывы:</b>
-        {% include 'reviews/product_reviews' %}
+        {% include 'reviews/product_reviews.html' %}
     </p>
     <p>
         <b>Категории:</b>

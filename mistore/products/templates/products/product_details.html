@@ -5,11 +5,21 @@
     {{ product.product_name }}
     <p>
         {% include 'products/product_photos.html' %}
-    <h2>{{ product.description }}</h2>
+        <h2>{{ product.description }}</h2>
+        Цена - {{ product.price }} руб.
+        {% if user.is_superuser and user.username == product.author.username %}
+            <br>
+            <a href="{% url 'products:edit' product.id %}">Редактировать товар</a>
+        {% endif %}
     </p>
     <p>
         <b>Отзывы:</b>
         {% include 'reviews/product_reviews.html' %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Добавить отзыв</button>
+        </form>
     </p>
     <p>
         <b>Категории:</b>

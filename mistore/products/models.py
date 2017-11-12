@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models
 from django.conf import settings
+from django.db import models
+
 from categories.models import Category
 from users.models import User
-#from carts.models import Cart
+
+
+# from carts.models import Cart
 
 class Product(models.Model):
     active = models.BooleanField(default=True)

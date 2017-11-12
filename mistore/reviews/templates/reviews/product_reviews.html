@@ -1,8 +1,3 @@
 {% for review in product.reviews.all %}
-    <div>
-        <em>{{ forloop.counter }}.</em>
-        <em>{{ review.text }}</em><br>
-        <small> Автор отзыва: <a href="{% url 'users:details' review.author.id %}">{{ review.author }}</a>
-        </small>
-    </div>
+    {% include 'reviews/review.html' %}
 {% endfor %}

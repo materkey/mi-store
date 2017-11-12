@@ -22,8 +22,9 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^products/', include('products.urls', namespace='products')),
-    url(r'^users/', include('users.urls', namespace='users')),
+    url(r'^accounts/', include('users.urls', namespace='users')),
     url(r'^categories/', include('categories.urls', namespace='categories')),
+    url(r'^reviews/', include('reviews.urls', namespace='reviews')),
     url(r'^', include('main.urls', namespace='main')),
     #url(r'^carts', include('carts.urls', namespace="carts")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

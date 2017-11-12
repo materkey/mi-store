@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('active', models.BooleanField(default=True)),
                 ('product_name', models.CharField(default='Xiaomi Device', max_length=255)),
-                ('description', models.CharField(default='No description provided', max_length=255)),
+                ('description', models.CharField(default='Нет описания', max_length=255)),
                 ('photo', models.ImageField(blank=True, null=True, upload_to='photos')),
                 ('price', models.IntegerField(default=0)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),

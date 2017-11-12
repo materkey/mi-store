@@ -7,7 +7,6 @@ from .models import Cart
 
 
 def get_cart(request, pk=None):
-
     cart = get_object_or_404(Cart.objects.all(), pk=pk)
 
-    return render(request, 'carts/get_cart.html', {'cart' : cart})
+    return render(request, 'carts/get_cart.html', {'cart': cart})

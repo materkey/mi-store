@@ -8,7 +8,7 @@
 <div>
     <a href="{% url 'products:details' product.id %}">{{product.product_name}}</a>
     <br>
-    <img src="{{ product.photo.url }}", width="100">
+    {% include 'products/product_photos.html' %}
 </div>
 {% endfor %}
 

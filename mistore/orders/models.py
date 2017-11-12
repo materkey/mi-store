@@ -2,8 +2,9 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from products.models import Product
+
 from carts.models import Cart
+from products.models import Product
 
 
 class Order(models.Model):

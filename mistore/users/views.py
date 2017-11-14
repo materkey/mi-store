@@ -10,6 +10,7 @@ User = get_user_model()
 
 
 class RegistrationForm(UserCreationForm):
+    error_css_class = "error"
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
         fields = ('username', 'password1', 'password2')
@@ -24,6 +25,18 @@ class RegistrationForm(UserCreationForm):
         self.fields['username'].widget.attrs['placeholder'] = 'Имя пользователя'
         self.fields['password1'].widget.attrs['placeholder'] = 'Введите пароль'
         self.fields['password2'].widget.attrs['placeholder'] = 'Повторите пароль'
+
+        # self.fields['username'].widget.attrs['class'] = 'form-control'
+        # self.fields['password1'].widget.attrs['class'] = 'form-control'
+        # self.fields['password2'].widget.attrs['class'] = 'form-control'
+
+        # for field in self.fields:
+        #     help_text = self.fields[field].help_text
+        #     self.fields[field].help_text = None
+        #     if help_text != '':
+        #         self.fields[field].widget.attrs.update(
+        #             {'class': 'has-popover', 'data-content': help_text, 'data-placement': 'right',
+        #              'data-container': 'body'})
 
 
 class CreateUser(CreateView):

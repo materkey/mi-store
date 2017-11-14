@@ -1,5 +1,5 @@
 {% if review.deleted == False %}
-    <div>
+    <article>
         <em><a href="{% url 'products:details' review.reviewed_product.id %}">{{ review.text }}</a></em>
         {% if user.is_authenticated and user.username == review.reviewed_product.author.username %}
         <a href="{% url 'reviews:edit' review.id %}">Редактировать отзыв</a>
@@ -7,5 +7,5 @@
         <br>
         <small> Автор отзыва: <a href="{% url 'users:details' review.author.id %}">{{ review.author }}</a>
         </small>
-    </div>
+    </article>
 {% endif %}

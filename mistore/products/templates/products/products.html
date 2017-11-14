@@ -1,11 +1,15 @@
-{% for product in products %}
-        <div>
-            <em><a href="{% url 'products:details' product.id %}">{{ product.product_name }}</a></em>
-        </div>
-        </p>
+<section>
+    {% for product in products %}
+        <article>
+            <div>
+                <em><a href="{% url 'products:details' product.id %}">{{ product.product_name }}</a></em>
+            </div>
+            </p>
 
-        <p>
-            {% include 'products/product_photos.html' %}
-        </p>
-        <br>
-{% endfor %}
+            <p>
+                {% include 'products/product_photos.html' %}
+            </p>
+            <br>
+        </article>
+    {% endfor %}
+</section>

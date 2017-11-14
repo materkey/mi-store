@@ -1,11 +1,25 @@
 {% extends "base.html" %}
-
+{% load widget_tweaks %}
 
 {% block content %}
-    <h2>Регистрация</h2>
-    <form method="post">
+
+    <h2>Регистрация</h2><br>
+
+    <form class="container" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Войти</button>
+        {% for field in form %}
+            <div class="row ">
+                <div class="col-md-3 mb-3 mx-auto">
+                    {{ field|add_class:"form-control" }}
+                    {% for error in field.errors %}
+                        <div class="invalid-feedback">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Регистрация</button>
     </form>
+
 {% endblock %}

@@ -9,8 +9,10 @@ from products.models import Product
 class ReviewQuerySet(models.QuerySet):
 
     def available_for_users(self, user):
-        return self.filter(models.Q(author=user) | models.Q(deleted=False))
-
+        if user.is_authenticated:
+            return self.filter(models.Q(author=user) | models.Q(deleted=False))
+        else:
+            return self.filter(deleted=False)
 
 class Review(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='reviews')

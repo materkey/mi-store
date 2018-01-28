@@ -24,7 +24,7 @@ SECRET_KEY = 'k6a80t_ynk9v&dpd2phsd809m$g+_x7jn817u^i4tph-b-f#m1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['materkey.pythonanywhere.com']
 
 # Application definition
 
@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'mistore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'TESTDB',
+        'NAME': 'materkey$TESTDB',
         'USER': 'materkey',
-        'PASSWORD': '123',
-        'HOST': 'localhost',
+        'PASSWORD': 'qwertyu1',
+        'HOST': 'materkey.mysql.pythonanywhere-services.com',
     }
 }
 
@@ -124,14 +124,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_ROOT = ''
+STATIC_ROOT = '/home/materkey/mi-store/mistore/static'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join('static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-ALLOWED_HOSTS = [
-    'localhost',
-    '192.168.1.186'
-]
